@@ -1,0 +1,27 @@
+/* Style for the container div */
+.list-container {
+  margin: 20px;
+  width: 850px;
+  padding-left: 550px;
+}
+
+/* Style for the unordered list */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Style for each list item */
+li {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fffefe;
+}
+
+/* Style for the paragraph inside each list item */
+p {
+  margin: 0;
+  font-weight: bold;
+}
