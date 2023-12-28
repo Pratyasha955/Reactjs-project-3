@@ -5,6 +5,7 @@ import './Form.css';
 const Form = (props) => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
+  const [college, setCollege] = useState('');
   const [error, setError] = useState(null);
 
   const nameInputChangeHandler = (event) => {
@@ -15,11 +16,15 @@ const Form = (props) => {
     setAge(event.target.value);
   };
 
+  const collegeInputChangeHandler = (event) => {
+    setCollege(event.target.value);
+  };
+
   const formSubmitHandler = (event) => {
     event.preventDefault();
 
-    if (name.trim().length === 0 || age.trim().length === 0) {
-      setError('Please enter a valid name and age!');
+    if (name.trim().length === 0 || age.trim().length === 0 || college.trim().length === 0) {
+      setError('Please enter a valid name, age and college!');
       return;
     }
 
@@ -28,9 +33,10 @@ const Form = (props) => {
       return;
     }
 
-    props.onUserInput({ name, age: +age });
+    props.onUserInput({ name, age: +age,college});
     setName('');
     setAge('');
+    setCollege('');
   };
 
   const errorHandler = () => {
@@ -50,11 +56,19 @@ const Form = (props) => {
           />
         </div>
         <div className="user-input-control">
-          <label>Age (Years):</label>
+          <label>Age:</label>
           <input
             type="number"
             value={age}
             onChange={ageInputChangeHandler}
+          />
+        </div>
+        <div className="user-input-control">
+          <label>College:</label>
+          <input
+            type="text"
+            value={college}
+            onChange={collegeInputChangeHandler}
           />
         </div>
         <button type="submit">ADD USER</button>
@@ -62,5 +76,6 @@ const Form = (props) => {
     </div>
   );
 };
+
 
 export default Form;
